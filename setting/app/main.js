@@ -45,29 +45,37 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// 我们引用样式文件require("!style!css!./style.css");，webpack会按前缀应用合适loader，但这样写比较敏锁，我们可以根据模块类型（扩展名）来自动绑定需要的 loader。
-	console.log(456);
 	__webpack_require__(1);
-	document.write(__webpack_require__(5));
+	module.exports = __webpack_require__(7);
+
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// 我们引用样式文件require("!style!css!./style.css");，webpack会按前缀应用合适loader，但这样写比较敏锁，我们可以根据模块类型（扩展名）来自动绑定需要的 loader。
+	console.log(123);
+	__webpack_require__(2);
+	document.write(__webpack_require__(6));
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(2);
+	var content = __webpack_require__(3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./node_modules/css-loader/index.js!./class.css", function() {
-				var newContent = require("!!./node_modules/css-loader/index.js!./class.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./class.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./class.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -77,21 +85,21 @@
 	}
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "* {\r\n    background: lightpink;\r\n}", ""]);
+	exports.push([module.id, "* {\r\n    background: #8DD28A;\r\n}", ""]);
 
 	// exports
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	/*
@@ -147,7 +155,7 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -399,10 +407,19 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	module.exports = "It works from content.js.";
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 我们引用样式文件require("!style!css!./style.css");，webpack会按前缀应用合适loader，但这样写比较敏锁，我们可以根据模块类型（扩展名）来自动绑定需要的 loader。
+	console.log(456);
+	__webpack_require__(2);
+	document.write(__webpack_require__(6));
 
 /***/ }
 /******/ ]);

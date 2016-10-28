@@ -46,7 +46,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// 我们引用样式文件require("!style!css!./style.css");，webpack会按前缀应用合适loader，但这样写比较敏锁，我们可以根据模块类型（扩展名）来自动绑定需要的 loader。
-	console.log(456);
+	console.log(123);
 	__webpack_require__(1);
 	document.write(__webpack_require__(5));
 
@@ -66,8 +66,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./node_modules/css-loader/index.js!./class.css", function() {
-				var newContent = require("!!./node_modules/css-loader/index.js!./class.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./class.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./class.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -85,7 +85,7 @@
 
 
 	// module
-	exports.push([module.id, "* {\r\n    background: lightpink;\r\n}", ""]);
+	exports.push([module.id, "* {\r\n    background: #8DD28A;\r\n}", ""]);
 
 	// exports
 

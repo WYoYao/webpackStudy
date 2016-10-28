@@ -66,8 +66,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./node_modules/css-loader/index.js!./class.css", function() {
-				var newContent = require("!!./node_modules/css-loader/index.js!./class.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./class.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./class.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -85,7 +85,7 @@
 
 
 	// module
-	exports.push([module.id, "* {\r\n    background: lightpink;\r\n}", ""]);
+	exports.push([module.id, "* {\r\n    background: #8DD28A;\r\n}", ""]);
 
 	// exports
 

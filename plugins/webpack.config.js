@@ -16,3 +16,4 @@ module.exports = {
         new webpack.BannerPlugin('这是一个注释')
     ]
 };
+
