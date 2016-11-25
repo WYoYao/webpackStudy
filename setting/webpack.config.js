@@ -4,8 +4,9 @@ var path = require('path');
 module.exports = {
     context: path.resolve(__dirname, 'bulid'),
     entry: {
-        entry:'./entry.js', 
-        entry1:'./entry1.js'
+        entry: './entry.js',
+        entry1: './entry1.js',
+        entry2: './entry.js',
     },
     output: {
         path: path.resolve(__dirname, 'app'),
@@ -13,7 +14,7 @@ module.exports = {
         filename: '[name].js',
         // 设置浏览器中的访问路径
         publicPath: '/virtualpath/',
-
+        sourceMapFilename: './map',
     },
     module: {
         loaders: [{
@@ -25,6 +26,3 @@ module.exports = {
         new webpack.BannerPlugin('这是一个注释')
     ]
 };
-
-
-
